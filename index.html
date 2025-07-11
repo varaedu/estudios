@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Estudio: Dirección de RRHH</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app-container">
+        <aside id="sidebar">
+            <header class="sidebar-header">
+                <h1>Dirección RRHH</h1>
+                <button id="theme-toggle" aria-label="Cambiar tema">🌙</button>
+            </header>
+            <nav id="navigation-menu">
+                <!-- NUEVA SECCIÓN DE BÚSQUEDA GLOBAL -->
+                <div id="global-search-container">
+                    <h2>🌍 Búsqueda Global</h2>
+                    <input type="text" id="global-search-input" placeholder="Buscar en todo el temario...">
+                    <ul id="global-search-results"></ul>
+                </div>
+                
+                <h2>📚 Contenido Teórico</h2>
+                <ul id="content-nav"></ul>
+                
+                <h2>🎓 Evaluación por Subtema</h2>
+                <ul id="quiz-nav"></ul>
+
+                <h2>🔄 Modo Aleatorio</h2>
+                <ul id="random-quiz-nav">
+                  <li><a href="#random" data-type="random-quiz">Quiz Aleatorio Global</a></li>
+                </ul>
+
+                 <h2>📊 Estadísticas</h2>
+                <ul id="stats-nav">
+                  <li><a href="#stats" data-type="stats">Mi Progreso</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- El resto del main-content se mantiene igual -->
+        <main id="main-content">
+             <div id="welcome-view" class="view active">
+                <header><h2>Bienvenido a tu Plataforma de Estudio</h2></header>
+                <div id="welcome-body"><p>Utiliza el menú de la izquierda para comenzar o usa la búsqueda global para encontrar un tema específico.</p></div>
+            </div>
+            <div id="content-view" class="view">
+                <header class="content-header">
+                    <h2 id="content-title"></h2>
+                    <div class="content-controls"><label><input type="checkbox" id="mark-completed"> Marcar como completado</label></div>
+                </header>
+                <div class="search-container">
+                  <input type="text" id="search-input" placeholder="Buscar en este tema...">
+                  <span id="search-results-count"></span>
+                </div>
+                <article id="content-body"></article>
+                <section id="notes-section">
+                    <h3>Mis Notas Personales 📝</h3>
+                    <p>Las notas se guardan automáticamente.</p>
+                    <textarea id="personal-notes" placeholder="Escribe tus notas aquí..."></textarea>
+                </section>
+            </div>
+            <div id="quiz-view" class="view">
+                <header class="quiz-header">
+                    <h2 id="quiz-title"></h2>
+                    <div class="quiz-info">
+                        <span id="question-counter"></span>
+                        <div id="timer-container">⏳ <span id="timer">00:00</span></div>
+                    </div>
+                </header>
+                <div id="quiz-body">
+                    <p id="question-text"></p>
+                    <div id="options-container"></div>
+                </div>
+                <footer class="quiz-footer"><button id="next-question-btn">Siguiente</button></footer>
+            </div>
+            <div id="results-view" class="view">
+                <header><h2 id="results-title">Resultados del Quiz</h2></header>
+                <div id="results-body">
+                    <div id="score-container">
+                        <p>Tu Puntuación:</p>
+                        <span id="final-score"></span>
+                    </div>
+                    <div id="summary-container">
+                        <h3>Resumen:</h3>
+                        <p>✅ Correctas: <span id="correct-count"></span></p>
+                        <p>❌ Incorrectas: <span id="incorrect-count"></span></p>
+                    </div>
+                    <div id="failed-questions-container">
+                        <h4>Preguntas Falladas:</h4>
+                        <ul id="failed-questions-list"></ul>
+                    </div>
+                </div>
+                <footer class="results-footer">
+                    <button id="retry-failed-btn">Reintentar Falladas</button>
+                    <button id="restart-quiz-btn">Empezar Desde Cero</button>
+                </footer>
+            </div>
+             <div id="stats-view" class="view">
+              <header><h2>Mis Estadísticas de Progreso</h2></header>
+              <div id="stats-body">
+                 <div class="stat-card">
+                   <h3>Avance por Temas Teóricos</h3>
+                   <div id="chapters-progress"></div>
+                 </div>
+                 <div class="stat-card">
+                    <h3>Progreso en Quizzes</h3>
+                    <div id="quizzes-progress"></div>
+                 </div>
+              </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- CARGA DE ARCHIVOS DE DATOS POR CAPÍTULO (No cambia) -->
+    <script src="content_chapter_1.js"></script>
+    <script src="quizzes_chapter_1.js"></script>
+    <script src="content_chapter_2.js"></script>
+    <script src="quizzes_chapter_2.js"></script>
+    <script src="content_chapter_3.js"></script>
+    <script src="quizzes_chapter_3.js"></script>
+    <script src="content_chapter_4.js"></script>
+    <script src="quizzes_chapter_4.js"></script>
+    <script src="content_chapter_5.js"></script>
+    <script src="quizzes_chapter_5.js"></script>
+    <script src="content_chapter_6.js"></script>
+    <script src="quizzes_chapter_6.js"></script>
+    
+    <script src="data_loader.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
